@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
             etiqueta.setText(getResources().getString(R.string.lblHello2));
             TextView tentativas = (TextView) findViewById(R.id.tentativas);
             tentativas.setText(Integer.toString(cont));
+
             if(num > numero) {
                 TextView palpite = (TextView) findViewById(R.id.palpite);
                 palpite.setText("TENTE UM NÚMERO MENOR");
@@ -44,5 +45,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
 }
