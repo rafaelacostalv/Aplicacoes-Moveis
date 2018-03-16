@@ -1,17 +1,11 @@
 package com.example.alunos.jogoadivinha2;
 
-
-
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
-import android.util.Log;
 import android.widget.TextView;
 
-class Placar  extends AppCompatActivity {
-    private TextView tentativas;
+class Placar extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +14,7 @@ class Placar  extends AppCompatActivity {
         Intent intencao = getIntent();
         Bundle pacote = intencao.getExtras();
 
-        String tentativas = pacote.getString("tentativas");
+        String tentativas = pacote.getString("oValor");
         TextView placar = (TextView) findViewById(R.id.placar);
         placar.setText(tentativas);
 

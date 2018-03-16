@@ -23,7 +23,10 @@ public class MainActivity extends AppCompatActivity {
     private int numero = gerador.nextInt(1000)+1;
     private TextView tentativas;
 
+
+
     public void Confere(View v) {
+
         EditText userInput = findViewById(R.id.editText);
         String str = userInput.getText().toString();
         SharedPreferences arquivo = getPreferences(Context.MODE_PRIVATE);
@@ -32,13 +35,14 @@ public class MainActivity extends AppCompatActivity {
         if (num == numero) {
             TextView etiqueta = (TextView) findViewById(R.id.etiqueta);
             etiqueta.setText(getResources().getString(R.string.lblHello));
-            TextView tentativas = (TextView) findViewById(R.id.tentativas);
+            tentativas = (TextView) findViewById(R.id.tentativas);
             tentativas.setText(Integer.toString(cont));
             String oValor = tentativas.getText().toString();
             SharedPreferences.Editor editor = arquivo.edit();
             editor.putString("tentativas", oValor);
             editor.commit();
             cont = 0;
+            numero = gerador.nextInt(1000)+1;;
         } else {
             cont++;
             TextView etiqueta = (TextView) findViewById(R.id.etiqueta);
@@ -58,13 +62,11 @@ public class MainActivity extends AppCompatActivity {
     public void placar(){
         Intent i = new Intent(getApplicationContext(), Placar.class);
 
-        SharedPreferences arquivo = getPreferences(Context.MODE_PRIVATE);
-        String oValor = arquivo.getString("valor", "nada...");
-        oValor = tentativas.getText().toString();
+        String oValor = tentativas.getText().toString();
         Log.i("oValor: ", oValor);
 
         Bundle bundle = new Bundle();
-        bundle.putString("tentativas", oValor);
+        bundle.putString("oValor", oValor);
         i.putExtras(bundle);
         startActivity(i);
     }
