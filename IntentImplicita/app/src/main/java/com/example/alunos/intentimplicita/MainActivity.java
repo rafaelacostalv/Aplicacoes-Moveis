@@ -9,7 +9,7 @@ import android.net.Uri;
 import android.view.View;
 import android.widget.Toast;
 
-class MainActitity extends AppCompatActivity {
+class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

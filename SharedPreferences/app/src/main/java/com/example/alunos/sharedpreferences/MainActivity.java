@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 import android.content.SharedPreferences;
 
-class MainActitity extends AppCompatActivity {
+class MainActivity extends AppCompatActivity {
 
     EditText valor;
     @Override
@@ -23,7 +23,7 @@ class MainActitity extends AppCompatActivity {
         SharedPreferences arquivo = getPreferences(Context.MODE_PRIVATE);
         String oValor = valor.getText().toString();
         if(oValor.matches("")){
-            Toast toast = Toast.makeText(MainActitity.this, "Digite algo...", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(MainActivity.this, "Digite algo...", Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
@@ -39,43 +39,4 @@ class MainActitity extends AppCompatActivity {
         Log.i("oValor: ", oValor);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

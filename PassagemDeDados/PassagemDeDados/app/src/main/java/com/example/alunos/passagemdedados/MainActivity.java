@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
             return;
         }
-        Intent i = new Intent(MainActivity.this, Resultado.class);
+        Intent i = new Intent(getApplicationContext(), Resultado.class);
 
         Bundle bundle = new Bundle();
         bundle.putString("nome", oNome);
