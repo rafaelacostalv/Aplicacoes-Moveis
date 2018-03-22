@@ -9,12 +9,10 @@ import android.widget.TextView;
 import java.util.List;
 import com.example.alunos.listadinmica.R;
 import com.example.alunos.listadinmica.model.Pessoa;
-
-import com.example.alunos.listadinmica.model.Pessoa;
-
 import java.util.List;
 
 public class PessoaAdapter {
+
     private Activity atividade;
     private List<Pessoa> lista;
 
@@ -23,22 +21,22 @@ public class PessoaAdapter {
         this.lista = lista;
     }
 
-    @Override
+    //@Override
     public int getCount(){
         return lista.size();
     }
 
-    @Override
+    //@Override
     public Object getItem(int position){
         return lista.get(position);
     }
 
-    @Override
+   // @Override
     public long getItemId(int position){
         return 0;
     }
 
-    @Override
+   // @Override
     public View getView(int position, View convertView, ViewGroup parent){
         Pessoa obj = lista.get(position);
 
@@ -47,7 +45,7 @@ public class PessoaAdapter {
         TextView textNome = v.findViewById(R.id.txtNome);
         textNome.setText(obj.getNome());
 
-        TextView textTelefone - v.findViewById(R.id.txtTelefone);
+        TextView textTelefone = v.findViewById(R.id.txtTelefone);
         textTelefone.setText(obj.getTelefone());
 
         ImageView imgImagem = v.findViewById(R.id.imgImagem);

@@ -6,7 +6,7 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imgImagem"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -19,14 +19,14 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/txtNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nome"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/txtTelefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Telefone" />

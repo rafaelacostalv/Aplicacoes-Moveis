@@ -56,16 +56,38 @@ public class Pessoa implements Parcelable{
         dest.writeInt(imagem);
     }
 
-    @SuppressWarnings("unused")
+    @SuppressWarnings("unused")Pessoa imple
     public  static final Parcelable.Creator<Pessoa> CREATOR = new Parcelable().Creator<Pessoa>(){
-        @Override
-        public Pessoa createFromParcel(Parcel in){
-             return new Pessoa(in);
-        }
-
-        @Override
-                public Pessoa[] newArray(int size){
-            return new Pessoa[size];
-        }
+            //@Override
+            public Pessoa createFromParcel(Parcel in){
+                return new Pessoa(in);
+            }
+            //@Override
+            public Pessoa[] newArray(int size){
+                return new Pessoa[size];
+            }
     };
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

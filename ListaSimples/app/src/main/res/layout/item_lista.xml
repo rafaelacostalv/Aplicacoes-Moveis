@@ -10,6 +10,7 @@
         android:id="@+id/lblFirst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/lblFirst"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.206"
@@ -18,9 +19,10 @@
         app:layout_constraintVertical_bias="0.132" />
 
     <TextView
-        android:id="@+id/aniversario"
+        android:id="@+id/lblSecond"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="13dp"
+        android:text="@string/lblSecond"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.751"
