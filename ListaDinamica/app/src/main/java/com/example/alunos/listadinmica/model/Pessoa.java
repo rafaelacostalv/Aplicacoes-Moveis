@@ -15,7 +15,7 @@ public class Pessoa implements Parcelable{
     }
 
     public String getNome(){
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome){
@@ -23,7 +23,7 @@ public class Pessoa implements Parcelable{
     }
 
     public String getTelefone(){
-        return telefone;
+        return this.telefone;
     }
 
     public void setTelefone(String telefone){
@@ -31,7 +31,7 @@ public class Pessoa implements Parcelable{
     }
 
     public int getImagem(){
-        return imagem;
+        return this.imagem;
     }
 
     public void setImagem(int id){
@@ -56,17 +56,18 @@ public class Pessoa implements Parcelable{
         dest.writeInt(imagem);
     }
 
-    @SuppressWarnings("unused")Pessoa imple
-    public  static final Parcelable.Creator<Pessoa> CREATOR = new Parcelable().Creator<Pessoa>(){
-            //@Override
-            public Pessoa createFromParcel(Parcel in){
-                return new Pessoa(in);
-            }
-            //@Override
-            public Pessoa[] newArray(int size){
-                return new Pessoa[size];
-            }
+
+
+    public static final Parcelable.Creator<Pessoa> CREATOR = new Parcelable.Creator<Pessoa>(){
+        public Pessoa createFromParcel(Parcel in){
+            return new Pessoa(in);
+        }
+        public Pessoa[] newArray(int size){
+            return new Pessoa[size];
+        }
+
     };
+
 }
 
 

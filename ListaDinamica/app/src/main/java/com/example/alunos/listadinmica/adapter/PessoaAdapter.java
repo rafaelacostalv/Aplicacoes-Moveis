@@ -11,7 +11,7 @@ import com.example.alunos.listadinmica.R;
 import com.example.alunos.listadinmica.model.Pessoa;
 import java.util.List;
 
-public class PessoaAdapter {
+public class PessoaAdapter extends BaseAdapter {
 
     private Activity atividade;
     private List<Pessoa> lista;
