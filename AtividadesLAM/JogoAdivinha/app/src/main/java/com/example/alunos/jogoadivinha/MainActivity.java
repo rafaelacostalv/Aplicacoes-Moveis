@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             if (num == numero) {
                 TextView etiqueta = (TextView) findViewById(R.id.textView);
                 etiqueta.setText(getResources().getString(R.string.lblHello));
-                cont = 0;
+                cont = 3;
             } else {
                 cont--;
                 TextView etiqueta = (TextView) findViewById(R.id.textView);
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             etiqueta.setText(getResources().getString(R.string.lblHello3));
             cont = 3;
         }
+        numero = gerador.nextInt(10)+1;
     }
 
 }

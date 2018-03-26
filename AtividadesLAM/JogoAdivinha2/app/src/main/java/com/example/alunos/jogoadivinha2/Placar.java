@@ -20,6 +20,7 @@ class Placar extends AppCompatActivity {
 
     }
     public void voltar(){
+
         this.finish();
     }
 }

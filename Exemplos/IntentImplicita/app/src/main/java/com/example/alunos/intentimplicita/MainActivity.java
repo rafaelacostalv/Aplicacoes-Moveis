@@ -20,7 +20,7 @@ class MainActivity extends AppCompatActivity {
         EditText url = (EditText) findViewById(R.id.txtUrl);
         String aUrl = url.getText().toString();
         if(aUrl.matches("")){
-            Toast toast = Toast.makeText(getApplicationContext(), "Digite um endereco web...", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(), "Digite um endereco web... com o http:// no começo pfv", Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
