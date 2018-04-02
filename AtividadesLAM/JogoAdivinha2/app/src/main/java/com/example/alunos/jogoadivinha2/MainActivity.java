@@ -14,6 +14,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
+    public String chave;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +27,10 @@ public class MainActivity extends AppCompatActivity {
     private Random gerador = new Random();
     private int numero = gerador.nextInt(1000)+1;
     private TextView tentativas;
-    HashMap<String, String> valores = new HashMap<>();
 
+
+
+    //HashMap<String, String> valores = new HashMap<>();
 
 
     public void Confere(View v) {
@@ -42,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
             etiqueta.setText(getResources().getString(R.string.lblHello));
             tentativas = (TextView) findViewById(R.id.tentativas);
             tentativas.setText(Integer.toString(cont));
+            String oValor = tentativas.getText().toString();
+            SharedPreferences.Editor editor = arquivo.edit();
+            editor.putString("tentativas", oValor);
+            editor.commit();
             cont = 0;
             numero = gerador.nextInt(1000)+1;;
         } else {
@@ -60,27 +67,24 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        for(int i = 0; i < 5; i ++){
-            String chave = "tentativa" + Integer.toString(i);
+
+        /*for(int i = 0; i < 5; i ++){
+            chave = "tentativa" + Integer.toString(i);
             if(valores.containsKey(chave)){
                 i++;
             }else{
-                valores.put(chave, chave[i]);
-                valores.put("tentativas", tentativas)
+                valores.put(chave, tentativas.getText().toString());
             }
-        }
+        }*/
 
-        String oValor = tentativas.getText().toString();
-        SharedPreferences.Editor editor = arquivo.edit();
-        editor.putString("tentativas", oValor);
-        editor.commit();
+
     }
     public void placar(View v){
         Intent i = new Intent(getApplicationContext(), Placar.class);
 
         SharedPreferences arquivo = getPreferences(Context.MODE_PRIVATE);
 
-        String oValor = arquivo.getString("tentativas", "Nada...");
+        String oValor = arquivo.getString("tentativas", "nada ...");
         tentativas.setText(oValor);
         Log.i("oValor: ", oValor);
 

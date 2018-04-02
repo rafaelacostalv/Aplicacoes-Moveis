@@ -17,10 +17,12 @@ class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     public void abrirUrl(View v){
+        String h = "https://";
         EditText url = (EditText) findViewById(R.id.txtUrl);
         String aUrl = url.getText().toString();
+        aUrl = h + aUrl;
         if(aUrl.matches("")){
-            Toast toast = Toast.makeText(getApplicationContext(), "Digite um endereco web... com o http:// no começo pfv", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(), "Digite um endereco web... ", Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
