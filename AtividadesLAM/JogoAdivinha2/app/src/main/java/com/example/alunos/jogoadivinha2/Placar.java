@@ -3,6 +3,7 @@ package com.example.alunos.jogoadivinha2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
+import android.view.View;
 import android.widget.TextView;
 
 class Placar extends AppCompatActivity {
@@ -19,7 +20,7 @@ class Placar extends AppCompatActivity {
         placar.setText(tentativas);
 
     }
-    public void voltar(){
+    public void voltar(View v){
 
         this.finish();
     }
