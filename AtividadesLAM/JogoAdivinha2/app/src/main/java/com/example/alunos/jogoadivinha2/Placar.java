@@ -15,9 +15,21 @@ class Placar extends AppCompatActivity {
         Intent intencao = getIntent();
         Bundle pacote = intencao.getExtras();
 
-        String tentativas = pacote.getString("oValor");
-        TextView placar = (TextView) findViewById(R.id.placar);
-        placar.setText(tentativas);
+
+        TextView txQuinta = (TextView) findViewById(R.id.txQuinta);
+        txQuinta.setText(pacote.getString("valor5"));
+
+        TextView txQuarta = (TextView) findViewById(R.id.txQuarta);
+        txQuarta.setText(pacote.getString("valor4"));
+
+        TextView txTerca = (TextView) findViewById(R.id.txTerca);
+        txTerca.setText(pacote.getString("valor3"));
+
+        TextView txSegunda = (TextView) findViewById(R.id.txSegunda);
+        txSegunda.setText(pacote.getString("valor2"));
+
+        TextView txPrimeira = (TextView) findViewById(R.id.txPrimeira);
+        txPrimeira.setText(pacote.getString("valor1"));
 
     }
     public void voltar(View v){

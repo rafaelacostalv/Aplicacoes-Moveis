@@ -1,8 +1,10 @@
 package com.example.alunos.androidqrcodescanner;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -44,22 +46,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(result.getContents() == null){
                 Toast.makeText(this, "Result Not Found", Toast.LENGTH_LONG).show();
             }else{
-                try {
-                    JSONObject obj = new JSONObject(result.getContents());
-                    for (int c = 0; c < JSONObject.length(); c++) {
 
+                    String url = result.getContents();
+
+                    String A = "http";
+                    boolean flag;
+                    flag = url.startsWith(A);
+                    if(flag == true){
+                        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url.toLowerCase()));
+                        startActivity(i);
+                    }
+                    else {
+                        try {
+                            JSONObject obj = new JSONObject(result.getContents());
+
+                            lblNome.setText(obj.getString("name"));
+                            lblEndereco.setText(obj.getString("address"));
+
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                            Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
+                            Log.e("ERRO",e.getMessage());
+                        }
                     }
 
-                    if(){
-
-                    }else {
-                        lblNome.setText(obj.getString("name"));
-                        lblEndereco.setText(obj.getString("address"));
-                    }
-                }catch (JSONException e){
-                    e.printStackTrace();
-                    Toast.makeText(this, result.getContents(), Toast.LENGTH_LONG).show();
-                }
             }
         }else{
             super.onActivityResult(requestCode, resultCode, data);

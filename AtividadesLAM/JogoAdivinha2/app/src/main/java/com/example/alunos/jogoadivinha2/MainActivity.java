@@ -5,33 +5,35 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import java.util.*;
-import android.widget.ListView;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    public String chave;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Random gerador = new Random();
+        this.numero = gerador.nextInt(1000)+1;
         SharedPreferences arquivo = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = arquivo.edit();
+        editor.putString("valor1","");
+        editor.putString("valor2","");
+        editor.putString("valor3","");
+        editor.putString("valor4","");
+        editor.putString("valor5","");
+        editor.commit();
 
     }
+
     private int cont;
     private Random gerador = new Random();
     private int numero = gerador.nextInt(1000)+1;
     private TextView tentativas;
-
-
-
-    //HashMap<String, String> valores = new HashMap<>();
-
 
     public void Confere(View v) {
 
@@ -45,12 +47,19 @@ public class MainActivity extends AppCompatActivity {
             etiqueta.setText(getResources().getString(R.string.lblHello));
             tentativas = (TextView) findViewById(R.id.tentativas);
             tentativas.setText(Integer.toString(cont));
-            String oValor = tentativas.getText().toString();
+
+            arquivo = getPreferences(Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = arquivo.edit();
-            editor.putString("tentativas", oValor);
+
+            editor.putString("valor5",arquivo.getString("valor4","Nenhum..."));
+            editor.putString("valor4",arquivo.getString("valor3","Nenhum..."));
+            editor.putString("valor3",arquivo.getString("valor2","Nenhum..."));
+            editor.putString("valor2",arquivo.getString("valor1","Nenhum..."));
+            editor.putString("valor1",cont+"");
             editor.commit();
-            cont = 0;
-            numero = gerador.nextInt(1000)+1;;
+            Random gerador = new Random();
+            this.numero = gerador.nextInt(1000)+1;
+
         } else {
             cont++;
             TextView etiqueta = (TextView) findViewById(R.id.etiqueta);
@@ -66,31 +75,23 @@ public class MainActivity extends AppCompatActivity {
                 palpite.setText("TENTE UM NÚMERO MAIOR");
             }
         }
-
-
-        /*for(int i = 0; i < 5; i ++){
-            chave = "tentativa" + Integer.toString(i);
-            if(valores.containsKey(chave)){
-                i++;
-            }else{
-                valores.put(chave, tentativas.getText().toString());
-            }
-        }*/
-
-
     }
+
     public void placar(View v){
-        Intent i = new Intent(getApplicationContext(), Placar.class);
+        Intent i = new Intent(MainActivity.this,Placar.class);
+        Bundle bundle = new Bundle();
 
         SharedPreferences arquivo = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = arquivo.edit();
 
-        String oValor = arquivo.getString("tentativas", "nada ...");
-        tentativas.setText(oValor);
-        Log.i("oValor: ", oValor);
+        bundle.putString("valor5",arquivo.getString("valor5","Nenhum..."));
+        bundle.putString("valor4",arquivo.getString("valor4","Nenhum..."));
+        bundle.putString("valor3",arquivo.getString("valor3","Nenhum..."));
+        bundle.putString("valor2",arquivo.getString("valor2","Nenhum..."));
+        bundle.putString("valor1",arquivo.getString("valor1","Nenhum..."));
 
-        Bundle bundle = new Bundle();
-        bundle.putString("oValor", oValor);
         i.putExtras(bundle);
+
         startActivity(i);
     }
 
